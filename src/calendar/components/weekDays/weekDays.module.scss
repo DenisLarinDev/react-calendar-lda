@@ -1,0 +1,14 @@
+@import "src/calendar/styles/colors";
+.items{
+  display: flex;
+}
+.item{
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 13px;
+  color: $weekDayColor;
+}

@@ -1,0 +1,32 @@
+@import "src/calendar/styles/colors";
+.horizontalScroll{
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  fill: $arrowEnabled;
+  position: absolute;
+  z-index: 2;
+}
+
+.arrow_disabled {
+  opacity: 0.5;
+}
+
+.arrow:first-child {
+  transform: rotate(90deg);
+  top: 7px;
+  left: 0;
+
+}
+
+.arrow:last-child {
+  transform: rotate(-90deg);
+  right: 0;
+  top: 7px;
+}

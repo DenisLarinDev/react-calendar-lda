@@ -1,0 +1,148 @@
+@import 'src/calendar/styles/colors';
+
+.dayItem{
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+.dayItem__wrapper{
+  width: 36px;
+  height: 36px;
+
+  &__inInterval {
+    background-color: $inIntervalDateColor !important;
+
+    &_startDate {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &_endDate {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+.dayItem__content {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+  flex-shrink: 0;
+  cursor: pointer;
+  &__day {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+  }
+
+
+  &__weekend {
+    color: $weekendColor;
+  }
+
+  &__anotherMonth {
+    opacity: 0.5;
+  }
+
+  &__focus {
+    &_inInterval{
+      background-color: $inIntervalDateColor;
+    }
+    &_left{
+      border-radius: 8px;
+    }
+    &_right{
+      border-radius: 8px;
+    }
+    &:before {
+      content: '';
+      background-color: $hoverColor;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 10px;
+      bottom: 0;
+      z-index: 2;
+      border-radius: 8px 0 0 8px;
+    }
+
+    &:after {
+      content: '';
+      right: -8px;
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      transform: scaleX(0.39) scaleY(0.78) rotate(45deg);
+      background-color: $hoverColor;
+      border-radius: 6px;
+      z-index: 1;
+    }
+    &_single{
+      border-radius: 8px!important;
+      &:before{
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-radius: 8px;
+      }
+      &:after{
+        display: none;
+      }
+    }
+
+    &_left {
+      &:before {
+        left: 10px;
+        right: 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      &:after {
+        right: 8px;
+      }
+    }
+  }
+
+  &__active {
+    &:before {
+      background-color: $focusColor;
+    }
+
+    &:after {
+      background-color: $focusColor;
+    }
+    &_single{
+      border-radius: 8px!important;
+      &:before{
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-radius: 8px;
+      }
+      &:after{
+        display: none;
+      }
+    }
+  }
+
+
+
+  &_now {
+    width: 16px;
+    background-color: black;
+    height: 3px;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+  }
+}
