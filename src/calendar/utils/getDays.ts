@@ -6,9 +6,7 @@ const isWeekend = (date: Date) => {
 const fillLeftPartOfWeek = (date: Date, index: number, week: IDayItem[]) => {
   const iterationDate = new Date(date);
   iterationDate.setDate(iterationDate.getDate() - 1);
-  console.log("iterationDate", iterationDate);
   let steps = index;
-  console.log("steps", steps);
   while (steps >= 0) {
     week[steps] = {
       date: new Date(iterationDate),
@@ -40,7 +38,6 @@ export const getDays = (focusDate: Date) => {
   const iterationDate = new Date(focusDate);
   iterationDate.setDate(1);
   iterationDate.setHours(0, 0, 0, 0);
-  console.log("iterationDate", iterationDate);
   const currentMonth = iterationDate.getMonth();
   const result: IDayItem[][] = [[], [], [], [], [], []];
   let weekNumber = 0;

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 import classes from "./horizontalScroll.module.scss";
 import * as classNames from "classnames";
 import { isDateMoreThenAnotherDate } from "../../utils/isDateMoreThenAnotherDate.ts";
@@ -17,7 +17,6 @@ export const scrollVariantsTransition = {
 
 export const scrollVariants = {
   enter: (direction: number) => {
-    console.log("direction enter", direction);
     return {
       x: direction > 0 ? 286 : -286,
       opacity: 0,
@@ -59,10 +58,29 @@ export const HorizontalScroll: FC<PropsWithChildren<HorizontalScrollProps>> = ({
     onChangePageDate(newDate);
   };
 
+  const onKeyDownHandler = (event: KeyboardEvent) => {
+    const { key } = event;
+    switch (key) {
+      case "ArrowLeft":
+        onPrevDateClickHandler();
+        break;
+      case "ArrowRight":
+        onNextDateClickHandler();
+        break;
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyDownHandler);
+    return () => {
+      document.removeEventListener("keydown", onKeyDownHandler);
+    };
+  }, [pageDate]);
+
   return (
     <div className={classes.horizontalScroll}>
       <svg
-        onClick={onPrevDateClickHandler}
+        onClick={() => onPrevDateClickHandler()}
         className={classNames(classes.arrow)}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -86,7 +104,7 @@ export const HorizontalScroll: FC<PropsWithChildren<HorizontalScrollProps>> = ({
         {children}
       </motion.div>
       <svg
-        onClick={onNextDateClickHandler}
+        onClick={() => onNextDateClickHandler()}
         className={classNames(classes.arrow)}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

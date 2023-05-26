@@ -14,8 +14,6 @@ export const Calendar: FC = () => {
   // const [calendarMode, setCaledarMode] = useState<"month" | "years">("month");
   const scrollDirection = useRef(1);
 
-  console.log("direction scrollDirection", scrollDirection);
-
   const setPageDateHandler = useCallback(
     (date: Date) => {
       if (isDateMoreThenAnotherDate(date, pageDate)) {

@@ -76,9 +76,9 @@ export const Days: FC<DaysProps> = ({
         className={classes.days}
         transition={scrollVariantsTransition}
       >
-        {days.map((week) => {
+        {days.map((week, index) => {
           return (
-            <div className={classes.week}>
+            <div key={index} className={classes.week}>
               {week.map((day) => {
                 const isDateFocused = isDatesEqual(day.date, focusedDate);
 
@@ -108,6 +108,7 @@ export const Days: FC<DaysProps> = ({
 
                 return (
                   <DayItem
+                    key={day.date.toLocaleDateString()}
                     day={day}
                     onMouseLeave={removeFocusedDateHandler}
                     onMouseEnter={setFocusedDateHandler}
