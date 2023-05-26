@@ -30,7 +30,9 @@ export const Header: FC<HeaderProps> = ({ pageDate, scrollDirection }) => {
       >
         <span className={classes.content}>
           {getMonth(pageDate.getMonth()).name}{" "}
-          <span className={classes.year}>{pageDate.getFullYear()}</span>
+          <span onClick={() => alert("В разработке")} className={classes.year}>
+            {pageDate.getFullYear()}
+          </span>
         </span>
       </motion.div>
     </AnimatePresence>

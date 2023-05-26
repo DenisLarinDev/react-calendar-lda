@@ -105,7 +105,11 @@ export const HorizontalScroll: FC<PropsWithChildren<HorizontalScrollProps>> = ({
       </motion.div>
       <svg
         onClick={() => onNextDateClickHandler()}
-        className={classNames(classes.arrow)}
+        className={classNames(classes.arrow, {
+          [classes.arrow_disabled]:
+            today.getMonth() === pageDate.getMonth() &&
+            today.getFullYear() === pageDate.getFullYear(),
+        })}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
