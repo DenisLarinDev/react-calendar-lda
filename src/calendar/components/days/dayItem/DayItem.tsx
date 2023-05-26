@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classes from "./dayItem.module.scss";
 import { IDayItem } from "../../../models/IDayItem.ts";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { isDatesEqual } from "../../../utils/isDatesEqual.ts";
 import { isDateMoreThenAnotherDate } from "../../../utils/isDateMoreThenAnotherDate.ts";
 

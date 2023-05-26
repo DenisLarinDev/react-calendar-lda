@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useEffect } from "react";
 import classes from "./horizontalScroll.module.scss";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { isDateMoreThenAnotherDate } from "../../utils/isDateMoreThenAnotherDate.ts";
 import { motion } from "framer-motion";
 

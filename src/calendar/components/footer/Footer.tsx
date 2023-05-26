@@ -1,6 +1,6 @@
 import { FC } from "react";
 import classes from "./footer.module.scss";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 interface FooterProps {
   isActive: boolean;
