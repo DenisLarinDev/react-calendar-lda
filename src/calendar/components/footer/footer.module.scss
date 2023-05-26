@@ -8,6 +8,7 @@
   cursor: pointer;
   color: $linkColor;
   font-size: 13px;
+  user-select: none;
 
 
   &:hover{
